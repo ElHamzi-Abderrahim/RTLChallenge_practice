@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="asset/MakerCode_RTLChallenge_logo.png" alt="MakerCode RTL Challenge" width="320">
+  <img src="asset/MakerCode_RTLChallenge_logo.png" alt="MakerCode RTL Challenge">
 </p>
 
 # MakerCode RTL Challenge
