@@ -272,3 +272,11 @@ local progress.
 | 0098 | MAC Unit | Medium |
 | 0099 | Max Pooling Unit | Easy |
 | 0100 | Argmax Unit | Easy |
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE) — you are free to use,
+modify, and distribute the challenges, including for commercial and educational
+purposes.
