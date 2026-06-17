@@ -31,10 +31,11 @@ You can also try the same questions set on our official website with online IDE 
 4. The Makefile compiles your design together with the challenge's `tb.sv` using
    **Icarus Verilog**, runs the simulation (once per parameter set in
    `input_vector.txt`), and reports each test as PASS/FAIL. Logs and waveforms
-   are written **into the challenge folder** (`0005/sim_1.log`, `0005/test_1.vcd`, …).
+   are written **into the challenge folder** (`questions/0005/sim_1.log`,
+   `questions/0005/test_1.vcd`, …).
 5. Open a waveform to debug:
    ```bash
-   make wave QUESTION=5          # opens 0005/test_1.vcd in GTKWave
+   make wave QUESTION=5          # opens questions/0005/test_1.vcd in GTKWave
    ```
 
 A test FAILS if the testbench reports an error (`ERROR: ...tb.sv`); otherwise it
@@ -71,7 +72,7 @@ make sim  QUESTION=5                  # solve 0005 in SystemVerilog (interface.s
 make sim  QUESTION=5 LANGUAGE=VHDL    # use interface.vhdl  (needs vhd2vl)
 make sim  QUESTION=5 LANGUAGE=TLV     # use interface.tlv   (needs sandpiper-saas)
 make sim  QUESTION=5 DUT=solution.sv  # run a specific file (e.g. the reference)
-make wave QUESTION=5 [TEST=2]         # open 0005/test_<k>.vcd in GTKWave
+make wave QUESTION=5 [TEST=2]         # open questions/0005/test_<k>.vcd in GTKWave
 make clean                           # remove all generated logs/waveforms
 ```
 
@@ -104,16 +105,19 @@ them out of version control.
 ├── update_csv.py          # records your per-language progress into the CSV
 ├── rtl_challenge_db.csv   # challenge index + your progress (SV/VHDL/TLV columns)
 ├── README.md              # this file
-└── 0000 ... 0100/         # one folder per challenge
-    ├── question.md        # the problem description (read this first)
-    ├── interface.sv       # SystemVerilog/Verilog template  <-- edit this
-    ├── interface.vhdl     # VHDL template                   <-- or this
-    ├── interface.tlv      # TL-Verilog template             <-- or this
-    ├── tb.sv              # the testbench (do NOT edit)
-    ├── input_vector.txt   # parameter sets the testbench is run with
-    ├── solution.sv        # reference answer, SystemVerilog (try before you peek!)
-    ├── solution.vhdl      # reference answer, VHDL  (placeholder / WIP)
-    └── solution.tlv       # reference answer, TL-Verilog  (placeholder / WIP)
+├── LICENSE                # MIT license
+├── asset/                 # logo and other assets
+└── questions/             # one folder per challenge
+    └── 0000 ... 0100/
+        ├── question.md        # the problem description (read this first)
+        ├── interface.sv       # SystemVerilog/Verilog template  <-- edit this
+        ├── interface.vhdl     # VHDL template                   <-- or this
+        ├── interface.tlv      # TL-Verilog template             <-- or this
+        ├── tb.sv              # the testbench (do NOT edit)
+        ├── input_vector.txt   # parameter sets the testbench is run with
+        ├── solution.sv        # reference answer, SystemVerilog (try before you peek!)
+        ├── solution.vhdl      # reference answer, VHDL  (placeholder / WIP)
+        └── solution.tlv       # reference answer, TL-Verilog  (placeholder / WIP)
 ```
 
 ### File meanings

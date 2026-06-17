@@ -41,7 +41,7 @@ TEST      ?= 1
 
 # Zero-pad to 4 digits; 10# forces base-10 so "010" is not read as octal.
 QID  := $(shell printf '%04d' $$((10#$(QUESTION))) 2>/dev/null)
-QDIR := $(QID)
+QDIR := questions/$(QID)
 
 .ONESHELL:
 .PHONY: sim wave clean help

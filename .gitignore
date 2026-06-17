@@ -1,0 +1,14 @@
+# Artifacts produced by the Makefile (make sim) inside each question folder
+questions/*/sim_*.log
+questions/*/test_*.vcd
+questions/*/compile_*.log
+questions/*/sim_*.out
+questions/*/dut.sv
+questions/*/dut_gen.sv
+questions/*/out/
+questions/*/PASS_*
+build/
+
+# Python / editor cruft
+__pycache__/
+*.pyc

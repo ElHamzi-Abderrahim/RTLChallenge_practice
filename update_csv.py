@@ -39,7 +39,7 @@ def main():
         meta = [row[i] if i < len(row) else "" for i in keep_idx]
         marks = []
         for lang in LANGS:
-            solved = os.path.isfile(os.path.join(BASE, qid, f"PASS_{lang}"))
+            solved = os.path.isfile(os.path.join(BASE, "questions", qid, f"PASS_{lang}"))
             marks.append("PASS" if solved else "")
             if solved:
                 counts[lang] += 1
