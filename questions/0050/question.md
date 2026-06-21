@@ -54,8 +54,8 @@ Where:
 For DECIMATION_FACTOR = 4 with input sequence [8, 16, 24, 32, 40, 48, 56, 64]:
 
 **Input samples**: 8, 16, 24, 32, 40, 48, 56, 64
-**Filtered samples**: 1, 4, 9, 16, 21, 28, 35, 44
-**Decimated output**: 16 (at n=3), 44 (at n=7)
+**Filtered samples**: 1, 5, 12, 20, 28, 36, 44, 52
+**Decimated output**: 20 (at n=3), 52 (at n=7)
 **Valid output pulses**: at input samples 3, 7, 11, 15, ...
 
 ### Timing Diagram
@@ -66,7 +66,7 @@ reset:         ‾‾‾\_______________________________________________________
 data_valid_in: ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 data_in:       <     8       ><  16  ><  24  ><  32  ><  40  ><  48  ><  56  ><  64  
 data_valid_out:__________________________________/‾‾‾\___________________________/‾‾‾\
-data_out:      <               0                 ><             16               >< 44
+data_out:      <               0                 ><             20               >< 52
 
 ```
 
