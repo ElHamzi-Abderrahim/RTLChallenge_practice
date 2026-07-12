@@ -16,7 +16,7 @@ module tb #(
     localparam TB_SIM_TIMEOUT = 30_000_000; //ns
 
 reg [DATA_WIDTH*(2**SELECT_WIDTH)-1:0] data_in;
-reg [SELECT_WIDTH-1:0] select;
+reg [SELECT_WIDTH-1:0] sel;
 wire [DATA_WIDTH-1:0] data_out;
 reg [DATA_WIDTH-1:0] expected_out;
 
@@ -28,7 +28,7 @@ int ERR_COUNT = 0;
       .SELECT_WIDTH(SELECT_WIDTH)
    ) DUT (
       .data_in(data_in),
-      .select(select),
+      .sel(sel),
       .data_out(data_out)
    );
 
@@ -36,10 +36,10 @@ int ERR_COUNT = 0;
 initial begin
     // Initialize inputs
     data_in = DATA_IN_ARRAY;
-    select = 0;
+    sel = 0;
     #20;
 
-    // Test all select combinations
+    // Test all sel combinations
     test_select(SELECT_1);
     test_select(SELECT_2);
     test_select(SELECT_3);
@@ -48,9 +48,9 @@ initial begin
     check_result;
 end
 
-// Task to test a specific select value
+// Task to test a specific sel value
 task test_select(input [SELECT_WIDTH-1:0] sel_val);
-    select = sel_val;
+    sel = sel_val;
     #20;
 
     // Calculate expected output

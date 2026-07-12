@@ -7,8 +7,8 @@ entity Universal_Shift_Register is
     clk : in std_logic;
     reset : in std_logic;
     load : in std_logic;
-    shift_left : in std_logic;
-    shift_right : in std_logic;
+    shift_l : in std_logic;
+    shift_r : in std_logic;
     serial_in : in std_logic;
     enable : in std_logic;
     q : out std_logic_vector(3 downto 0)

@@ -5,8 +5,8 @@ module Universal_Shift_Register (
     input wire clk,
     input wire reset,
     input wire load,
-    input wire shift_left,
-    input wire shift_right,
+    input wire shift_l,
+    input wire shift_r,
     input wire serial_in,
     input wire enable,
     output wire [3:0] q

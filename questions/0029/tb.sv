@@ -13,8 +13,8 @@ module tb(
 reg clk = 0;
 reg reset = 0;
 reg load = 0;
-reg shift_left = 0;
-reg shift_right = 0;
+reg shift_l = 0;
+reg shift_r = 0;
 reg serial_in = 0;
 reg enable = 1;
 wire [3:0] q;
@@ -27,8 +27,8 @@ Universal_Shift_Register DUT(
     .clk(clk),         // Clock input
     .reset(reset),     // Reset input
     .load(load),       // Load input
-    .shift_left(shift_left), // Shift left input
-    .shift_right(shift_right), // Shift right input
+    .shift_l(shift_l), // Shift left input
+    .shift_r(shift_r), // Shift right input
     .serial_in(serial_in),  // Serial input
     .enable(enable),   // Enable input
     .q(q)              // 4-bit output
@@ -39,8 +39,8 @@ initial begin
     // Initialize inputs
     reset = 1;
     load = 0;
-    shift_left = 0;
-    shift_right = 0;
+    shift_l = 0;
+    shift_r = 0;
     serial_in = 0;
     enable = 1;
     # (2*CLK_PERIOD);
@@ -56,19 +56,19 @@ initial begin
     # (CLK_PERIOD);
 
     // Test shift left
-    shift_left = 1;
-    shift_right = 0;
+    shift_l = 1;
+    shift_r = 0;
     $display("%0tns Shifting left", $time);
     # (3*CLK_PERIOD);
-    shift_left = 0;
+    shift_l = 0;
     $display("%0tns Stopped shifting left", $time);
 
     // Test shift right
-    shift_right = 1;
-    shift_left = 0;
+    shift_r = 1;
+    shift_l = 0;
     $display("%0tns Shifting right", $time);
     # (3*CLK_PERIOD);
-    shift_right = 0;
+    shift_r = 0;
     $display("%0tns Stopped shifting right", $time);
 
     check_result;
@@ -85,9 +85,9 @@ always @(posedge clk or posedge reset) begin
     end else if (load) begin
         data_reg <= {3'b000, serial_in}; // Load serial_in as LSB
     end else if (enable) begin
-        if (shift_left) begin
+        if (shift_l) begin
             data_reg <= {data_reg[2:0], data_reg[3]}; // Shift left (circular)
-        end else if (shift_right) begin
+        end else if (shift_r) begin
             data_reg <= {data_reg[0], data_reg[3:1]}; // Shift right (circular)
         end
     end

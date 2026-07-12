@@ -2,8 +2,8 @@ module Universal_Shift_Register (
   input wire clk,        // Clock input
   input wire reset,      // Reset input
   input wire load,       // Load input
-  input wire shift_left, // Shift left input
-  input wire shift_right, // Shift right input
+  input wire shift_l, // Shift left input
+  input wire shift_r, // Shift right input
   input wire serial_in,  // Serial input
   input wire enable,     // Enable input
   output wire [3:0] q    // 4-bit output
@@ -17,9 +17,9 @@ always @(posedge clk) begin
     end else if (load) begin
         shift_reg <= {3'b000, serial_in};
     end else if (enable) begin
-        if (shift_left) begin
+        if (shift_l) begin
             shift_reg <= {shift_reg[2:0], shift_reg[3]};  // Circular shift left
-        end else if (shift_right) begin
+        end else if (shift_r) begin
             shift_reg <= {shift_reg[0], shift_reg[3:1]};  // Circular shift right
         end
     end

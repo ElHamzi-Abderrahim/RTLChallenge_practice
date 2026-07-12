@@ -9,7 +9,7 @@ entity simple_mux is
   );
   port (
     data_in : in std_logic_vector(DATA_WIDTH*(2**SELECT_WIDTH)-1 downto 0);
-    select : in std_logic_vector(SELECT_WIDTH-1 downto 0);
+    sel : in std_logic_vector(SELECT_WIDTH-1 downto 0);
     data_out : out std_logic_vector(DATA_WIDTH-1 downto 0)
   );
 end entity simple_mux;
