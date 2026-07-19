@@ -14,4 +14,4 @@ __pycache__/
 *.pyc
 
 # Tools
-./vhd2vl
+vhd2vl/
