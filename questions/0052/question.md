@@ -2,7 +2,7 @@
 
 ## Problem Statement
 
-Design a parameterizable combinational module that generates and checks parity bits for error detection. The module should support both even and odd parity modes.
+Design a parameterizable combinational module that generates and checks parity bits for err detection. The module should support both even and odd parity modes.
 
 ### Module Interface
 - **Module Name**: `parity_gen_check`
@@ -15,7 +15,7 @@ Design a parameterizable combinational module that generates and checks parity b
   - `parity_in`: Input parity bit (used only in check mode)
 - **Outputs**:
   - `parity_out`: Generated parity bit (valid in generate mode)
-  - `error`: Error flag (1 if parity check fails, valid in check mode)
+  - `err`: Error flag (1 if parity check fails, valid in check mode)
 
 **Parameters**:
 | Parameter | Default Value | Description |
@@ -32,7 +32,7 @@ Design a parameterizable combinational module that generates and checks parity b
 
 2. **Check Mode (mode=1)**:
    - Verify if the received data + parity_in is valid
-   - error = 1 if parity check fails, 0 if valid
+   - err = 1 if parity check fails, 0 if valid
 
 3. **Combinational Logic**: Pure combinational implementation (no clock required)
 
@@ -51,12 +51,12 @@ For DATA_WIDTH = 8, PARITY_TYPE = 0 (Even Parity):
 | 8'b10101011 | 1          | 5 ones -> odd, parity=1 |
 
 **Check Mode (mode=1)**:
-| data_in     | parity_in | error | Explanation |
+| data_in     | parity_in | err | Explanation |
 |-------------|-----------|-------|-------------|
 | 8'b00000001 | 1         | 0     | 1+1=2 ones (even) -> valid |
-| 8'b00000001 | 0         | 1     | 1+0=1 one (odd) -> error |
+| 8'b00000001 | 0         | 1     | 1+0=1 one (odd) -> err |
 | 8'b11110000 | 0         | 0     | 4+0=4 ones (even) -> valid |
-| 8'b11110000 | 1         | 1     | 4+1=5 ones (odd) -> error |
+| 8'b11110000 | 1         | 1     | 4+1=5 ones (odd) -> err |
 
 ### Hints
 

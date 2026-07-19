@@ -12,7 +12,7 @@ entity parity_gen_check is
     mode : in std_logic;
     parity_in : in std_logic;
     parity_out : out std_logic;
-    error : out std_logic
+    err : out std_logic
   );
 end entity parity_gen_check;
 

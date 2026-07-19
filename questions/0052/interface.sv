@@ -6,7 +6,7 @@ module parity_gen_check #(
     input  wire                  mode,       // 0 = generate, 1 = check
     input  wire                  parity_in,  // input parity (for check mode)
     output wire                  parity_out, // generated parity (for generate mode)
-    output wire                  error       // error flag (for check mode)
+    output wire                  err       // err flag (for check mode)
 );
 // your implementation here
 

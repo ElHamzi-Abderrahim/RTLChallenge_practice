@@ -9,7 +9,7 @@ module parity_gen_check #(
     input wire mode,
     input wire parity_in,
     output wire parity_out,
-    output wire error
+    output wire err
 );
 
 \TLV

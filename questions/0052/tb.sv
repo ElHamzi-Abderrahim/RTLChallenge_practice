@@ -14,7 +14,7 @@ module tb #(
     reg                   mode;
     reg                   parity_in;
     wire                  parity_out;
-    wire                  error;
+    wire                  err;
 
     integer ERR_COUNT = 0;
 
@@ -29,7 +29,7 @@ module tb #(
         .mode(mode),
         .parity_in(parity_in),
         .parity_out(parity_out),
-        .error(error)
+        .err(err)
     );
 
     //---------------------------------------------------------
@@ -58,8 +58,8 @@ module tb #(
                 xor_result = xor_result ^ d[i];
             end
             xor_result = xor_result ^ p_in;
-            // Even parity: error if xor_result != 0
-            // Odd parity: error if xor_result != 1
+            // Even parity: err if xor_result != 0
+            // Odd parity: err if xor_result != 1
             ref_parity_check = (PARITY_TYPE == 0) ? xor_result : ~xor_result;
         end
     endfunction
@@ -91,10 +91,10 @@ module tb #(
             parity_in = p_in;
             #2;
             expected_error = ref_parity_check(d, p_in);
-            if (error !== expected_error) begin
+            if (err !== expected_error) begin
                 ERR_COUNT = ERR_COUNT + 1;
                 $error("Check mismatch: data=%b, parity_in=%b, expected_error=%b, got=%b",
-                       d, p_in, expected_error, error);
+                       d, p_in, expected_error, err);
             end
         end
     endtask
