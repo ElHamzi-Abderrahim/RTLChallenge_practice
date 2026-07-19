@@ -12,3 +12,6 @@ build/
 # Python / editor cruft
 __pycache__/
 *.pyc
+
+# Tools
+./vhd2vl
