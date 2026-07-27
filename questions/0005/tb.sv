@@ -3,8 +3,8 @@
 module tb #(
     //---------------------------------------------------------
     // Input Vectors
-    parameter PATTERN = 4'b1011,
-    parameter DATA_STREAM = 64'b1011010110110100001011111100001011101110111010110101101101
+    parameter [3:0]  PATTERN = 4'b1011,
+    parameter [63:0] DATA_STREAM = 64'b1011010110110100001011111100001011101110111010110101101101
     );
     // --------------------------------------------------------
 
@@ -70,21 +70,24 @@ end
 // Golden model - count expected pattern detections
 always @(posedge clk) begin
     if (rst_n) begin
+        #1;
         golden_shift_reg <= {golden_shift_reg[2:0], data_in};
         if (golden_shift_reg == PATTERN) begin
             $display("%0tns Golden: Pattern detected at bit %0d", $time, 63-bit_index);
+            expected_detections = 63-bit_index ;
         end
     end
 end
 
 // Check pattern detection from DUT
 always @(posedge clk) begin
-   #1;
-  if (pattern_detected != (golden_shift_reg == PATTERN)) begin
-      ERR_COUNT = ERR_COUNT + 1;
-      $error("%0tns Detection count = %0d, expected = %0d", $time, detection_count, expected_detections);      
-   end else if (pattern_detected) begin
-      $display("%0tns DUT: Pattern detected at bit %0d", $time, 63-bit_index);
+    #1;
+    if (pattern_detected != bit'(golden_shift_reg == PATTERN)) begin
+        ERR_COUNT = ERR_COUNT + 1;
+        $error("%0tns Detection count = %0d, expected = %0d", $time, detection_count, expected_detections);      
+    end else if (pattern_detected) begin
+        $display("%0tns DUT: Pattern detected at bit %0d", $time, 63-bit_index);
+        detection_count = 63-bit_index ;
   end
 end
 
