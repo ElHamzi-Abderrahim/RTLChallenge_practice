@@ -7,8 +7,8 @@ assignees: ElHamzi-Abderrahim
 
 ---
 
-- [x] **Create** a dedicated branch for solving **Question-xxx** (using _right sidebar and scroll to the Development section_ of the issue)
-- [ ] **Checkout** the created branch.
+- [x] **Create** the issue related to the Question-xxx.
 - [ ] **Solve** the question.
+- [ ] **Link** the commit solution to the issue ticket by mentioning the **#*issue_number*** in the commit's message.
 - [ ] **Push** the solution.
 - [ ] **Compare and Pull Request**
