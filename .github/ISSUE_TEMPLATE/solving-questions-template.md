@@ -11,5 +11,4 @@ assignees: ElHamzi-Abderrahim
 - [ ] **Checkout** the created branch.
 - [ ] **Solve** the question.
 - [ ] **Push** the solution.
-- [ ] **Create PR**.
-- [ ] **Merge PR**
+- [ ] **Compare and Pull Request**
