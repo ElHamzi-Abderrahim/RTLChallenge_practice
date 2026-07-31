@@ -9,6 +9,25 @@ module d_flip_flop (
   output    reg       q_asyncrst_o // Q output from flop using asynchrnoous reset
 );
 
-// your implementation here
+
+  always_ff @( posedge clk ) begin : dff_norst
+    q_norst_o <= d_i ;
+  end
+
+  always_ff @( posedge clk ) begin : dff_syncrst
+    if (reset) begin
+      q_syncrst_o <= 1'b0 ;
+    end else begin
+      q_syncrst_o <= d_i ;
+    end
+  end
+
+  always_ff @(posedge clk, posedge reset ) begin: dff_asyncrst
+    if (reset) begin
+      q_asyncrst_o <= 1'b0 ;
+    end else begin
+      q_asyncrst_o <= d_i ;
+    end
+  end
 
 endmodule
