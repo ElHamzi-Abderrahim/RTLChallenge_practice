@@ -21,8 +21,8 @@ Design a dual edge detector module that detects both rising and falling edges of
 1. **Rising Edge Detection**: Detect transition from 0 to 1 on `a_i`
 2. **Falling Edge Detection**: Detect transition from 1 to 0 on `a_i`
 3. **Single-Cycle Pulse**: Output pulses last exactly one clock cycle
-4. **Synchronous Operation**: All edge detection is synchronized to clock
-5. **Reset Functionality**: Reset clears all internal state and outputs
+4. **Reset Functionality**: Reset clears all internal state and outputs
+<!-- 5. **Synchronous Operation**: All edge detection is synchronized to clock -->
 
 ### Example Operation
 
@@ -35,8 +35,8 @@ Design a dual edge detector module that detects both rising and falling edges of
 Clock:          ____/‾‾‾\___/‾‾‾\___/‾‾‾\___/‾‾‾\___/‾‾‾\___/‾‾‾\___
 reset:          ‾‾‾‾‾‾‾‾‾‾‾‾‾\______________________________________
 a_i:            __________/‾‾‾‾‾‾‾‾‾‾‾\___________/‾‾‾‾‾‾‾\_________
-rising_edge_o:  ____________/‾‾‾\___________________/‾‾‾\___________
-falling_edge_o: ____________________________/‾‾‾\___________/‾‾‾\___
+rising_edge_o:  __________/‾‾‾\___________________/‾‾‾\___________
+falling_edge_o: ______________________/‾‾‾\_______________/‾‾‾\___
 ```
 
 ## Constraints
