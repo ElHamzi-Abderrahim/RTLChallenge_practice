@@ -2,7 +2,7 @@
 name: Solving Questions Template
 about: This template is for the steps to follow for solving questions
 title: Solving Question xxx
-labels: ''
+labels: Practice/Challenge
 assignees: ElHamzi-Abderrahim
 
 ---
